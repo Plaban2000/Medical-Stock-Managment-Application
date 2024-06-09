@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <!-- Customer Servlet Configuration -->
+    <servlet>
+        <servlet-name>CustomerServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.CustomerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CustomerServlet</servlet-name>
+        <url-pattern>/CustomerServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Medicine Servlet Configuration -->
+    <servlet>
+        <servlet-name>MedicineServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.MedicineServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MedicineServlet</servlet-name>
+        <url-pattern>/MedicineServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Sales Servlet Configuration -->
+    <servlet>
+        <servlet-name>SalesServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.SalesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SalesServlet</servlet-name>
+        <url-pattern>/SalesServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Subscription Servlet Configuration -->
+    <servlet>
+        <servlet-name>SubscriptionServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.SubscriptionServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SubscriptionServlet</servlet-name>
+        <url-pattern>/SubscriptionServlet</url-pattern>
+    </servlet-mapping>
+
+    <!-- Admin Servlet Configuration -->
+    <servlet>
+        <servlet-name>AdminServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.AdminServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AdminServlet</servlet-name>
+        <url-pattern>/AdminServlet</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Shop Owner Servlet Configuration -->
+    <servlet>
+        <servlet-name>ShopOwnerServlet</servlet-name>
+        <servlet-class>com.yourcompany.servlet.ShopOwnerServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ShopOwnerServlet</servlet-name>
+        <url-pattern>/ShopOwnerServlet</url-pattern>
+    </servlet-mapping>
+
+</web-app>

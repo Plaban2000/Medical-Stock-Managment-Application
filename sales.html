@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sales Management</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sales Management</h1>
+    <form id="salesForm">
+        <input type="number" name="medId" placeholder="Medicine ID">
+        <input type="number" name="customerId" placeholder="Customer ID">
+        <input type="number" name="amount" placeholder="Amount">
+        <input type="date" name="sellingDate" placeholder="Selling Date">
+        <input type="hidden" name="shopOwnerId" value="1"> <!-- Replace with dynamic value -->
+        <button type="submit">Add Sale</button>
+    </form>
+    <div id="response"></div>
+    <script src="script.js"></script>
+</body>
+</html>

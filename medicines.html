@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Medicine Stock</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Medicine Stock Management</h1>
+    <form id="medicineForm">
+        <input type="text" name="medName" placeholder="Medicine Name">
+        <input type="text" name="batchNo" placeholder="Batch Number">
+        <input type="text" name="manfName" placeholder="Manufacturer Name">
+        <input type="date" name="manfDate" placeholder="Manufacture Date">
+        <input type="date" name="expDate" placeholder="Expiry Date">
+        <input type="number" name="buyingCost" placeholder="Buying Cost">
+        <input type="number" name="sellingCost" placeholder="Selling Cost">
+        <input type="number" name="quantity" placeholder="Quantity">
+        <input type="hidden" name="shopOwnerId" value="1"> <!-- Replace with dynamic value -->
+        <button type="submit">Add Medicine</button>
+    </form>
+    <div id="response"></div>
+    <script src="script.js"></script>
+</body>
+</html>
