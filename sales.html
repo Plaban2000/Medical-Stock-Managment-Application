@@ -2,20 +2,20 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sales Management</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Information</title>
 </head>
 <body>
-    <h1>Sales Management</h1>
-    <form id="salesForm">
-        <input type="number" name="medId" placeholder="Medicine ID">
-        <input type="number" name="customerId" placeholder="Customer ID">
-        <input type="number" name="amount" placeholder="Amount">
-        <input type="date" name="sellingDate" placeholder="Selling Date">
-        <input type="hidden" name="shopOwnerId" value="1"> <!-- Replace with dynamic value -->
-        <button type="submit">Add Sale</button>
-    </form>
-    <div id="response"></div>
-    <script src="script.js"></script>
+    <h1>Sales Records</h1>
+
+    <!-- Buttons to select the sales period -->
+    <button id="showSale">Show All Sales</button>
+    <button id="threeMonthsSale">Last 3 Months Sales</button>
+    <button id="sixMonthsSale">Last 6 Months Sales</button>
+
+    <!-- Div to display the sales data -->
+    <div id="salesData"></div>
+
+    <script src="sales.js"></script>
 </body>
 </html>
