@@ -53,22 +53,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 document.addEventListener('DOMContentLoaded', () => {
-    const salesForm = document.getElementById('salesForm');
-    const responseDiv = document.getElementById('response');
+    const showSaleBtn = document.getElementById('showSale');
+    const threeMonthsSaleBtn = document.getElementById('threeMonthsSale');
+    const sixMonthsSaleBtn = document.getElementById('sixMonthsSale');
+    const salesDataDiv = document.getElementById('salesData');
 
-    salesForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const formData = new FormData(salesForm);
-        fetch('/SalesServlet?action=addSale', {
-            method: 'POST',
-            body: new URLSearchParams(formData)
-        })
-        .then(response => response.text())
-        .then(data => {
-            responseDiv.innerText = data;
-        })
-        .catch(error => console.error('Error:', error));
+   
+    function fetchSalesData(action) {
+        fetch(/SalesServlet?action=${action})
+            .then(response => response.text())
+            .then(data => {
+                salesDataDiv.innerHTML = data; 
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                salesDataDiv.innerHTML = '<p>Error fetching sales data.</p>';
+            });
+    }
+
+  
+    showSaleBtn.addEventListener('click', () => {
+        fetchSalesData('showSale');
     });
+
+    threeMonthsSaleBtn.addEventListener('click', () => {
+        fetchSalesData('threeMonthsSale');  
+    });
+
+    sixMonthsSaleBtn.addEventListener('click', () => {
+        fetchSalesData('sixMonthsSale'); 
+    });
 });
 
 document.addEventListener('DOMContentLoaded', () => {
