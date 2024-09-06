@@ -13,9 +13,13 @@ public class MedicineServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
+        String action = request.getParameter("action");//add-medicine
         if ("addMedicine".equals(action)) {
             addMedicine(request, response);
+
+	if ("retrieveMedicine".equals(action)) {
+            retrieveMedicine(request, response);
+
         } else {
             response.getWriter().println("Invalid action specified");
         }
@@ -56,4 +60,24 @@ public class MedicineServlet extends HttpServlet {
             response.getWriter().println("Error: " + e.getMessage());
         }
     }
+private void retrieveMedicine(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        response.setContentType("text/html"); // Set the content type to HTML
+        PrintWriter out = response.getWriter();
+
+        try (Connection connection = DBConnection.getConnection()) {
+            String sql = "SELECT * FROM Medicines"; // SQL query to retrieve all medicine stock details
+            try (PreparedStatement statement = connection.prepareStatement(sql); ResultSet resultSet = statement.executeQuery()) {
+                // Output retrieved data as HTML
+                out.println("<html><body><h2>Medicine Stock</h2><table border='1'><tr><th>ID</th><th>Batch No</th><th>Name</th><th>Manufacturer</th><th>Expiry Date</th><th>Manufacture Date</th><th>Buying Cost</th><th>Selling Cost</th><th>Quantity</th><th>Shop Owner ID</th></tr>");
+                while (resultSet.next()) {
+                    out.println("<tr><td>" + resultSet.getInt("MED_id") + "</td><td>" + resultSet.getString("Batch_no") + "</td><td>" + resultSet.getString("MED_name") + "</td><td>" + resultSet.getString("MED_manf_name") + "</td><td>" + resultSet.getDate("MED_exp_date") + "</td><td>" + resultSet.getDate("MED_manf_date") + "</td><td>" + resultSet.getDouble("Buying_cost") + "</td><td>" + resultSet.getDouble("Selling_cost") + "</td><td>" + resultSet.getInt("Quantity") + "</td><td>" + resultSet.getInt("Shop_owner_id") + "</td></tr>");
+                }
+                out.println("</table></body></html>");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+            out.print("Error: " + e.getMessage());
+        }
+    }
+
 }
